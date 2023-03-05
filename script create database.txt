@@ -6,5 +6,6 @@ Nombre VARCHAR (100),
 Telefono VARCHAR (10),
 Correo VARCHAR (50),
 Comentario VARCHAR (200),
-create_date datetime 
+create_date datetime,
+direccion_ip VARCHAR (50)
 )
