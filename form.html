@@ -37,20 +37,20 @@
             <div class="panel-body">
                 <form id="crear-registro" method="post" action="modeloCitas.php">
                     <div class="form-group">
-                      <label for="nombre">Nombre completo:</label>
-                      <input type="text" class="form-control" id="nombre" name="nombre">
+                      <label for="nombre" >Nombre completo:</label>
+                      <input type="text" class="form-control" id="nombre" name="nombre" required>
                     </div>
                     <div class="form-group">
-                        <label for="telefono">Telefono:</label>
-                        <input type="number" class="form-control" id="telefono" name="telefono">
+                        <label for="telefono" >Telefono:</label>
+                        <input type="number" class="form-control" id="telefono" name="telefono" required>
                       </div>
                     <div class="form-group">
                       <label for="correo">Correo:</label>
-                      <input type="correo" class="form-control" id="correo" name="correo" >
+                      <input type="correo" class="form-control" id="correo" name="correo" required>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Comentario:</label>
-                        <textarea class="form-control" name="comentario" id="" cols="30" rows="10"></textarea>
+                        <textarea class="form-control" name="comentario" id="" cols="30" rows="10" required></textarea>
                     </div>
                     <input type="hidden" name="registro" value="nuevo">
                     <button type="submit" class="btn btn-primary col-sm-12 col-xs-12 btn-lg">Enviar</button>
