@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  // const formulario = document.querySelector('#crear-registro')
+  
 
   $('#crear-registro').on('submit', function(e){
     e.preventDefault();
@@ -21,7 +21,7 @@ $(document).ready(function(){
                   title: 'Registro creado',
                   text: 'Informacion enviada correctamente'
                 }) 
-                document.getElementById("myForm").reset();
+                document.getElementById("crear-registro").reset();
           }
           else{
             Swal.fire({
@@ -30,58 +30,22 @@ $(document).ready(function(){
               text: 'Informacion enviada correctamente'
             }) 
           }
-
-        //     if(respuesta.respuesta == 'exito') {
-             
-
-        //       // mostrar Notificación
-        //       mostrarNotificacion('Datos enviados exitosamente', 'correcto');
-
-        //  } else {
-        //       // Mostramos una notificacion
-        //       mostrarNotificacion('Hubo un error...', 'error' );
-        //  }
         }
     })
-}); //Creacion de citas
+}); 
 
-// $('#crear-registro').on('submit', function(e){
-//   e.preventDefault();
+$.getJSON('http://ip-api.com/json', function(ip){
+  var data = {
+    ip: ip.query,
+    isp: ip.isp
+  };
+  var direccionIp = document.querySelector('#direccionIp');
+  var isp = document.querySelector('#isp');
+  isp.value=data.isp;
+  direccionIp.value=data.ip;
   
-//   var datos = $(this).serializeArray();
-//   $.ajax({
-//       error: function(data){
-//           console.log(data);
-//           respuesta = data;
-      
-//               Swal.fire({
-//                   type: 'success',
-//                   title: 'Registro creado',
-//                   text: 'Informacion enviada correctamente'
-//                 }) 
-//       }
-//   })
-// })
 
-function mostrarNotificacion(mensaje, clase) {
-  const notificacion = document.createElement('div');
-  notificacion.classList.add(clase, 'notificacion', 'sombra');
-  notificacion.textContent = mensaje;
+});
 
-  // formulario
-  formulario.insertBefore(notificacion, document.querySelector('form legend'));
-
-  // Ocultar y Mostrar la notificacion
-  setTimeout(() => {
-       notificacion.classList.add('visible');
-       setTimeout(() => {
-            notificacion.classList.remove('visible');           
-            setTimeout(() => {
-                 notificacion.remove();
-            }, 500)
-       }, 3000);
-  }, 100);
-
-}
 
 });
